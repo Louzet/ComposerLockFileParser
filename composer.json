@@ -1,0 +1,45 @@
+{
+    "name": "louzet/composer-lock-file-parser",
+    "description": "",
+    "keywords": [
+        "composer parser",
+        "composer-lock-file-parser",
+        "parser",
+        "clfp"
+    ],
+    "homepage": "https://github.com/louzet/composer-lock-file-parser",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mickael Louzet",
+            "email": "micklouzet@hotmail.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "symfony/property-access": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Louzet\\ComposerLockFileParser\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Louzet\\ComposerLockFileParser\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

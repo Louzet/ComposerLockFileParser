@@ -1,0 +1,50 @@
+dist: xenial
+
+sudo: false
+
+language: php
+
+php:
+  - 7.3
+
+matrix:
+  fast_finish: true
+
+env:
+  matrix:
+    - COMPOSER_FLAGS="--prefer-lowest"
+    - COMPOSER_FLAGS=""
+
+before_script:
+  - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - travis_retry composer self-update
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+
+install:
+  - composer --optimize-autoloader --no-interaction install
+
+script:
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+
+after_script:
+  ## Scrutinizer
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover ./build/logs/clover.xml
+
+# Customize when the notification emails are sent.
+notifications:
+  email:
+    recipients:
+      - angelyx@live.fr
+    on_success: always # default: change
+    on_failure: always # default: always
+
+# safelist
+branches:
+  only:
+    - master
+
+cache:
+  pip: true
+  directories:
+    - $HOME/.composer/cache/
