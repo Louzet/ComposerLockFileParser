@@ -1,7 +1,7 @@
 # Very short description of the package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/louzet/composer-lock-file-parser.svg?style=flat-square)](https://packagist.org/packages/louzet/composer-lock-file-parser)
-[![Build Status](https://img.shields.io/travis/louzet/composer-lock-file-parser/master.svg?style=flat-square)](https://travis-ci.org/louzet/composer-lock-file-parser)
+[![Build Status](https://travis-ci.com/Louzet/ComposerLockFileParser.svg?branch=master)](https://travis-ci.com/Louzet/ComposerLockFileParser)
 [![Quality Score](https://img.shields.io/scrutinizer/g/louzet/composer-lock-file-parser.svg?style=flat-square)](https://scrutinizer-ci.com/g/louzet/composer-lock-file-parser)
 [![Total Downloads](https://img.shields.io/packagist/dt/louzet/composer-lock-file-parser.svg?style=flat-square)](https://packagist.org/packages/louzet/composer-lock-file-parser)
 
