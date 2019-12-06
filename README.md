@@ -1,6 +1,10 @@
-# Very short description of the package
+---
+### THE PROJECT IS UNDER PROGRESS AND IS NOT READY YET
+---
 
 <!-- [![Latest Version on Packagist](https://img.shields.io/packagist/v/louzet/composer-lock-file-parser.svg?style=flat-square)](https://packagist.org/packages/louzet/composer-lock-file-parser) -->
+
+[![PHP](https://img.shields.io/badge/PHP-7.3%2B-blue.svg)](https://php.net/migration72)
 [![Build Status](https://travis-ci.com/Louzet/ComposerLockFileParser.svg?branch=master)](https://travis-ci.com/Louzet/ComposerLockFileParser)
 [![Quality Score](https://scrutinizer-ci.com/g/louzet/composerLockFileParser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/louzet/ComposerLockFileParser/)
 
