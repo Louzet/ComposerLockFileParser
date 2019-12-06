@@ -2,7 +2,7 @@
 
 /**
  * Author: mickael Louzet @micklouzet
- * File: RegistrationController.php
+ * File: ParserCollection.php
  * Created: 05/12/2019
  */
 
@@ -10,8 +10,12 @@ declare(strict_types=1);
 
 namespace Louzet\ComposerLockFileParser;
 
-class ParserCollection implements \Countable, \Iterator, \ArrayAccess
+use Louzet\ComposerLockFileParser\SearcherTrait;
+
+class ParserCollection extends AbstractSearcher implements \Countable, \Iterator, \ArrayAccess
 {
+    use SearcherTrait;
+    
     private $values = [];
 
     private $position = 0;

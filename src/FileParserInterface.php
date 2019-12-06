@@ -2,7 +2,7 @@
 
 /**
  * Author: mickael Louzet @micklouzet
- * File: RegistrationController.php
+ * File: FileParserInterface.php
  * Created: 05/12/2019
  */
 
