@@ -147,6 +147,5 @@ tools:
 
 build_failure_conditions:
     - 'elements.rating(<= D).new.exists'
-    - 'issues.severity(>= MINOR).new.exists'
     - 'project.metric_change("scrutinizer.test_coverage", < -0.10)'
     - 'patches.label("Doc Comments").exists'

@@ -62,31 +62,31 @@ class Package {
     /** @var array */
     private $keywords;
     
-    /** @var Datetime */
+    /** @var DateTime|null */
     private $time;
 
     /**
-     * @param string $name
-     * @param string $version
-     * @param array $source
-     * @param array $dist
-     * @param array $require
-     * @param array $requireDev
-     * @param array $suggest
-     * @param string $type
-     * @param array $extra
-     * @param array $autoload
-     * @param string $notificationUrl
-     * @param array $license
-     * @param array $authors
-     * @param string $description
-     * @param string $homepage
-     * @param array $keywords
+     * @param string        $name
+     * @param string        $version
+     * @param array         $source
+     * @param array         $dist
+     * @param array         $require
+     * @param array         $requireDev
+     * @param array         $suggest
+     * @param string        $type
+     * @param array         $extra
+     * @param array         $autoload
+     * @param string        $notificationUrl
+     * @param array         $license
+     * @param array         $authors
+     * @param string        $description
+     * @param string        $homepage
+     * @param array         $keywords
      * @param DateTime|null $time
      */
     private function __construct(string $name, string $version, array $source, array $dist, array $require,
         array $requireDev, array $suggest, string $type, array $extra, array $autoload, string $notificationUrl, array $license, array $authors, string $description, string $homepage,
-        array $keywords, $time)
+        array $keywords, ?DateTime $time)
     {
         $this->name = $name;
         $this->version = $version;
@@ -109,27 +109,29 @@ class Package {
 
     /**
      * @param array $packageInfo
-     * @return void
+     *
+     * @return Package
+     * @throws \Exception
      */
-    public static function factory(array $packageInfo)
+    public static function factory(array $packageInfo): Package
     {
         return new self(
             $packageInfo['name'],
             $packageInfo['version'],
-            isset($packageInfo['source']) ? $packageInfo['source'] : [],
-            isset($packageInfo['dist']) ? $packageInfo['dist'] : [],
-            isset($packageInfo['require']) ? $packageInfo['require'] : [],
-            isset($packageInfo['require-dev']) ? $packageInfo['require-dev'] : [],
-            isset($packageInfo['suggest']) ? $packageInfo['suggest'] : [],
-            isset($packageInfo['type']) ? $packageInfo['type'] : '',
-            isset($packageInfo['extra']) ? $packageInfo['extra'] : [],
-            isset($packageInfo['autoload']) ? $packageInfo['autoload'] : [],
-            isset($packageInfo['notification-url']) ? $packageInfo['notification-url'] : '',
-            isset($packageInfo['license']) ? $packageInfo['license'] : [],
-            isset($packageInfo['authors']) ? $packageInfo['authors'] : [],
-            isset($packageInfo['description']) ? $packageInfo['description'] : '',
-            isset($packageInfo['homepage']) ? $packageInfo['homepage'] : '',
-            isset($packageInfo['keywords']) ? $packageInfo['keywords'] : [],
+            $packageInfo['source'] ?? [],
+            $packageInfo['dist'] ?? [],
+            $packageInfo['require'] ?? [],
+            $packageInfo['require-dev'] ?? [],
+            $packageInfo['suggest'] ?? [],
+            $packageInfo['type'] ?? '',
+            $packageInfo['extra'] ?? [],
+            $packageInfo['autoload'] ?? [],
+            $packageInfo['notification-url'] ?? '',
+            $packageInfo['license'] ?? [],
+            $packageInfo['authors'] ?? [],
+            $packageInfo['description'] ?? '',
+            $packageInfo['homepage'] ?? '',
+            $packageInfo['keywords'] ?? [],
             isset($packageInfo['time']) ? new DateTime($packageInfo['time']) : null
         );
     }
@@ -253,7 +255,7 @@ class Package {
     }
 
     /**
-     * @return \DateTime|null
+     * @return DateTime|null
      */
     public function getTime(): ?DateTime
     {
