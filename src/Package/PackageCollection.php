@@ -13,7 +13,7 @@ namespace ComposerLockParser\Package;
 use ComposerLockParser\Package\Package;
 use ArrayObject;
 
-class PackagesCollection extends ArrayObject
+class PackageCollection extends ArrayObject
 {
 
     /** @var array */
@@ -27,7 +27,7 @@ class PackagesCollection extends ArrayObject
     public function getByName(string $name): Package
     {
         if (!$this->hasByName($name)) {
-            throw new \UnexpectedValueException(sprintf("Sorry, package %s not found !", $name));
+            throw new \UnexpectedValueException(sprintf('Sorry, package %s not found !', $name));
         }
         return $this->getIndexedByName()[$name];
     }
@@ -40,7 +40,7 @@ class PackagesCollection extends ArrayObject
     public function getByNamespace(string $namespace): Package
     {
         if (!$this->hasByNamespace($namespace)) {
-            throw new \UnexpectedValueException(sprintf("Sorry, namespace %s not found !", $namespace));
+            throw new \UnexpectedValueException(sprintf('Sorry, namespace %s not found !', $namespace));
         }
         return $this->getIndexedByNamespace()[$namespace];
     }
@@ -65,13 +65,19 @@ class PackagesCollection extends ArrayObject
         return array_key_exists($namespace, $this->getIndexedByNamespace());
     }
 
-    public function offsetSet($index, $package)
+    /**
+     * @param mixed $index
+     * @param mixed $package
+     *
+     * @return void
+     */
+    public function offsetSet($index, $package): void
     {
         if ($package instanceof Package) {
             $this->indexedBy['name'][$package->getName()] = $package;
             $this->indexedBy['namespace'][$package->getNamespace()] = $package;
         }
-        return parent::offsetSet($index, $package);
+        parent::offsetSet($index, $package);
     }
     
     /**
