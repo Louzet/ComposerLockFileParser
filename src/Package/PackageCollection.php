@@ -73,6 +73,7 @@ class PackagesCollection extends ArrayObject
         }
         return parent::offsetSet($index, $package);
     }
+    
     /**
      * @return array
      */
