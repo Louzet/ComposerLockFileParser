@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace ComposerLockFileParser;
+namespace ComposerLockParser;
 
 abstract class AbstractSearcher {
 

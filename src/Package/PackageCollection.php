@@ -27,7 +27,7 @@ class PackageCollection extends ArrayObject
     public function getByName(string $name): Package
     {
         if (!$this->hasByName($name)) {
-            throw new \UnexpectedValueException(sprintf('Sorry, package %s not found !', $name));
+            throw new \UnexpectedValueException(sprintf('Sorry, Package %s not found !', $name));
         }
         return $this->getIndexedByName()[$name];
     }

@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace ComposerLockFileParser;
+namespace ComposerLockParser;
 
 use ComposerLockFileParser\ParserCollection;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -60,7 +60,7 @@ class FileParser implements FileParserInterface
 
     // public function byVendor(string $vendor)
     // {
-    //     if (0 !== \strpos($package['name'], "vendor/")) {
+    //     if (0 !== \strpos($Package['name'], "vendor/")) {
     //         continue;
     //     }
     // }

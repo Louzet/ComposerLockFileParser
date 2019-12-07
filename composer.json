@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ComposerLockFileParser\\": "src"
+            "ComposerLockParser\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Louzet\\ComposerLockFileParser\\Tests\\": "tests"
+            "ComposerLockParser\\Tests\\": "tests/"
         }
     },
     "scripts": {
