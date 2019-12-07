@@ -8,14 +8,14 @@
 
 declare(strict_types=1);
 
-namespace Louzet\ComposerLockFileParser;
+namespace ComposerLockFileParser;
 
-use Louzet\ComposerLockFileParser\SearcherTrait;
+use ComposerLockFileParser\SearcherTrait;
 
 class ParserCollection extends AbstractSearcher implements \Countable, \Iterator, \ArrayAccess
 {
     use SearcherTrait;
-    
+
     private $values = [];
 
     private $position = 0;

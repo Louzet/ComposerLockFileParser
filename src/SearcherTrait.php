@@ -1,6 +1,6 @@
 <?php
 
-namespace Louzet\ComposerLockFileParser;
+namespace ComposerLockFileParser;
 
 trait SearcherTrait {
 
@@ -9,6 +9,6 @@ trait SearcherTrait {
      */
     public function vendorName(string $vendorName = null): array
     {
-        return ['great ! ' . $vendorName . 'has been found !'];
+        return ['great ! ' . $vendorName . ' package has been found !'];
     }
 }

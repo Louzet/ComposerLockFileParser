@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Louzet\\ComposerLockFileParser\\": "src"
+            "ComposerLockFileParser\\": "src"
         }
     },
     "autoload-dev": {

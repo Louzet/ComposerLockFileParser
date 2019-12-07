@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Louzet\ComposerLockFileParser;
+namespace ComposerLockFileParser;
 
 abstract class AbstractSearcher {
 
