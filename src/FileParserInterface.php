@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace ComposerLockFileParser;
+namespace ComposerLockParser;
 
-use ComposerLockFileParser\ParserCollection;
+use ComposerLockParser\ParserCollection;
 
 interface FileParserInterface {
 

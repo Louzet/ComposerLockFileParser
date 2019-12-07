@@ -62,7 +62,6 @@ class Package {
     /** @var array */
     private $keywords;
     
-    /** @var DateTime|null */
     private $time;
 
     /**
@@ -113,7 +112,7 @@ class Package {
      * @return Package
      * @throws \Exception
      */
-    public static function factory(array $packageInfo): Package
+    public static function factory(array $packageInfo): self
     {
         return new self(
             $packageInfo['name'],
@@ -193,11 +192,27 @@ class Package {
     }
 
     /**
+     * @return array
+     */
+    public function getSuggest(): array
+    {
+        return $this->suggest;
+    }
+
+    /**
      * @return string
      */
     public function getType(): string
     {
         return $this->type;
+    }
+
+    /**
+     * @return array
+     */
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 
     /**
@@ -230,6 +245,13 @@ class Package {
         return $this->license;
     }
 
+    /**
+     * @return string
+     */
+    public function getNotificationUrl(): string
+    {
+        return $this->notificationUrl;
+    }
     /**
      * @return array
      */

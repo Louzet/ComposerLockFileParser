@@ -1,6 +1,6 @@
 <?php
 
-namespace ComposerLockFileParser;
+namespace ComposerLockParser;
 
 trait SearcherTrait {
 
@@ -9,6 +9,6 @@ trait SearcherTrait {
      */
     public function vendorName(string $vendorName = null): array
     {
-        return ['great ! ' . $vendorName . ' package has been found !'];
+        return ['great ! ' . $vendorName . ' Package has been found !'];
     }
 }
