@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace Louzet\ComposerLockFileParser;
+namespace ComposerLockFileParser;
 
-use Louzet\ComposerLockFileParser\ParserCollection;
+use ComposerLockFileParser\ParserCollection;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 class FileParser implements FileParserInterface
