@@ -8,17 +8,17 @@
 
 declare(strict_types=1);
 
-namespace ComposerLockParser;
+namespace ComposerLockParser\Parser;
 
-use ComposerLockParser\ParserCollection;
+use ComposerLockParser\Package\PackageCollection;
 
 interface FileParserInterface {
 
     /**
      *
      * @param string $filePath
-     * @return ParserCollection
+     * @return PackageCollection
      */
-    public static function parse(string $filePath);
+    public static function parse(string $filePath): PackageCollection;
 
 }
