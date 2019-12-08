@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm.
  * Author: mickael-dev
- * File: FileNotFoundException.php
+ * File: InvalidComposerLockFileException.php
  * Created: 07/12/2019 18:26
  */
 
@@ -13,13 +13,13 @@ namespace ComposerLockParser\Exception;
 use Throwable;
 
 /**
- * Class FileNotFoundException
+ * Class InvalidComposerLockFileException
  *
  * @package ComposerLockParser\Exception
  */
-class FileNotFoundException extends \LogicException
+class InvalidComposerLockFileException extends \LogicException
 {
-    protected $message = 'Sorry! This file was not found or does not exist';
+    protected $message = 'Sorry! It looks like this file is not a composer.lock file';
 
     public function __construct($message = '', $code = 0, Throwable $previous = null)
     {

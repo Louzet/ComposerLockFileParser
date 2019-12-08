@@ -2,10 +2,8 @@
 .idea
 
 build
-composer.lock
+/composer.lock
 docs
 vendor
 coverage
 phpunit.xml
-
-index.php

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Author: mickael Louzet @micklouzet
+ * File: SearcherTrait.php
+ * Created: 08/12/2019
+ */
+
 namespace ComposerLockParser;
 
 use ComposerLockParser\Package\Package;

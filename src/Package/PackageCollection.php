@@ -2,7 +2,7 @@
 
 /**
  * Author: mickael Louzet @micklouzet
- * File: Package.php
+ * File: PackageCollection.php
  * Created: 07/12/2019
  */
 
@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace ComposerLockParser\Package;
 
 use ComposerLockParser\SearcherTrait;
-use ComposerLockParser\Package\Package;
 use ArrayObject;
 
 /**
@@ -23,14 +22,17 @@ class PackageCollection extends ArrayObject
 {
     use SearcherTrait;
 
-    /** @var array */
-    private $indexedBy;
+    /** @var array|null */
+    public $indexedBy;
 
     /**
      * @return array
      */
     public function getPackages(): array
     {
+        if (null === $this->indexedBy) {
+            return [];
+        }
         return $this->getIndexedByName();
     }
 
@@ -39,7 +41,10 @@ class PackageCollection extends ArrayObject
      */
     public function getNameSpaces(): array
     {
-        return array_keys($this->getIndexedByNamespace());
+        if (null === $this->indexedBy) {
+            return [];
+        }
+        return $this->getIndexedByNamespace();
     }
 
     /**
@@ -58,16 +63,16 @@ class PackageCollection extends ArrayObject
     }
     
     /**
-     * @return array
+     * @return array|null
      */
-    private function getIndexedByName(): array
+    private function getIndexedByName(): ?array
     {
         if (!empty($this->indexedBy['name'])) {
             return $this->indexedBy['name'];
         }
         /** @var Package $package */
         foreach($this->getArrayCopy() as $package) {
-            if (!($package instanceof Package)) {
+            if (!$package instanceof Package) {
                 continue;
             }
             $this->indexedBy['name'][$package->getName()] = $package;

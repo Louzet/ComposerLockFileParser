@@ -12,8 +12,8 @@ namespace ComposerLockParser\Parser;
 
 use ComposerLockParser\Package\Package;
 use ComposerLockParser\Package\PackageCollection;
-use ComposerLockParser\Exception\FileContentExeption;
 use ComposerLockParser\Exception\FileNotFoundException;
+use ComposerLockParser\Exception\InvalidComposerLockFileException;
 
 class FileParser implements FileParserInterface
 {
@@ -22,15 +22,15 @@ class FileParser implements FileParserInterface
      */
     public static function parse(string $filePath): PackageCollection
     {
-        if (!\is_file($filePath)) {
-            throw new FileNotFoundException('Sorry! This file was not found or does not exist');
+        if (strcmp(pathinfo($filePath)['basename'], 'composer.lock') !== 0) {
+            throw new InvalidComposerLockFileException();
         }
 
-        if (false === $content = \file_get_contents($filePath)) {
-            throw new FileContentExeption('An error has occured while reading your file !');
+        if (false === \file_exists($filePath)) {
+            throw new FileNotFoundException();
         }
 
-        $data = \json_decode($content, true, 512, JSON_THROW_ON_ERROR);
+        $data = \json_decode(\file_get_contents($filePath), true, 512, JSON_THROW_ON_ERROR);
 
         if (empty($data)) {
             return new PackageCollection();

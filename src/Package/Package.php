@@ -234,7 +234,7 @@ class Package {
         } elseif (isset($this->autoload['psr-4'])) {
             $namespace = $this->autoload['psr-4'];
         }
-        return trim(key($namespace), '\\');
+        return trim((string)key($namespace), '\\');
     }
 
     /**
