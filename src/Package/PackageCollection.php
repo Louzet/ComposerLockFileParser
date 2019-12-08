@@ -10,64 +10,41 @@ declare(strict_types=1);
 
 namespace ComposerLockParser\Package;
 
+use ComposerLockParser\SearcherTrait;
 use ComposerLockParser\Package\Package;
 use ArrayObject;
 
+/**
+ * Class PackageCollection
+ *
+ * @package ComposerLockParser\Package
+ */
 class PackageCollection extends ArrayObject
 {
+    use SearcherTrait;
 
     /** @var array */
     private $indexedBy;
 
     /**
-     * @param string $name
-     *
-     * @return Package
+     * @return array
      */
-    public function getByName(string $name): Package
+    public function getPackages(): array
     {
-        if (!$this->hasByName($name)) {
-            throw new \UnexpectedValueException(sprintf('Sorry, Package %s not found !', $name));
-        }
-        return $this->getIndexedByName()[$name];
+        return $this->getIndexedByName();
     }
 
     /**
-     * @param string $namespace
-     *
-     * @return Package
+     * @return array
      */
-    public function getByNamespace(string $namespace): Package
+    public function getNameSpaces(): array
     {
-        if (!$this->hasByNamespace($namespace)) {
-            throw new \UnexpectedValueException(sprintf('Sorry, namespace %s not found !', $namespace));
-        }
-        return $this->getIndexedByNamespace()[$namespace];
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
-    public function hasByName(string $name): bool
-    {
-        return array_key_exists($name, $this->getIndexedByName());
-    }
-
-    /**
-     * @param string $namespace
-     *
-     * @return bool
-     */
-    public function hasByNamespace($namespace): bool
-    {
-        return array_key_exists($namespace, $this->getIndexedByNamespace());
+        return array_keys($this->getIndexedByNamespace());
     }
 
     /**
      * @param mixed $index
-     * @param mixed $package
+     * @param Package $package
      *
      * @return void
      */
@@ -111,8 +88,7 @@ class PackageCollection extends ArrayObject
             if (!($package instanceof Package)) {
                 continue;
             }
-            $this->indexedBy['namespace'][$package->getNamespace()] = $package;
         }
-        return $this->indexedBy['namespace'];
+        return $this->indexedBy['namespace'][$package->getNamespace()];
     }
 }
