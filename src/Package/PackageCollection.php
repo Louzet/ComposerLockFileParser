@@ -26,9 +26,9 @@ class PackageCollection extends ArrayObject
     public $indexedBy;
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getPackages(): array
+    public function getPackages(): ?array
     {
         if (null === $this->indexedBy) {
             return [];
@@ -37,9 +37,9 @@ class PackageCollection extends ArrayObject
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getNameSpaces(): array
+    public function getNameSpaces(): ?array
     {
         if (null === $this->indexedBy) {
             return [];
@@ -71,7 +71,7 @@ class PackageCollection extends ArrayObject
             return $this->indexedBy['name'];
         }
         /** @var Package $package */
-        foreach($this->getArrayCopy() as $package) {
+        foreach ($this->getArrayCopy() as $package) {
             if (!$package instanceof Package) {
                 continue;
             }
@@ -81,15 +81,15 @@ class PackageCollection extends ArrayObject
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    private function getIndexedByNamespace(): array
+    private function getIndexedByNamespace(): ?array
     {
         if (!empty($this->indexedBy['namespace'])) {
             return $this->indexedBy['namespace'];
         }
         /** @var Package $package */
-        foreach($this->getArrayCopy() as $package) {
+        foreach ($this->getArrayCopy() as $package) {
             if (!($package instanceof Package)) {
                 continue;
             }
