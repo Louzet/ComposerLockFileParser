@@ -1,5 +1,5 @@
 &nbsp;
-[![Latest Unstable Version](https://poser.pugx.org/louzet/composer-lock-file-parser/v/unstable)](https://packagist.org/packages/louzet/composer-lock-file-parser)
+[![Latest Unstable Version](https://poser.pugx.org/louzet/composer-lock-file-parser/v/stable)](https://packagist.org/packages/louzet/composer-lock-file-parser)
 [![PHP](https://img.shields.io/badge/PHP-7.3%2B-blue.svg)](https://php.net/migration72)
 [![Build Status](https://travis-ci.com/Louzet/ComposerLockFileParser.svg?branch=master)](https://travis-ci.com/Louzet/ComposerLockFileParser)
 [![Quality Score](https://scrutinizer-ci.com/g/louzet/composerLockFileParser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/louzet/ComposerLockFileParser/)
@@ -122,11 +122,7 @@ if ($parser->nameExists('bower-asset/bootstrap')) {
 
 ### Security
 
-If you discover any security related issues, please email micklouzet@hotmail.fr instead of using the issue tracker.
-
-## Credits
-
-- [Mickael Louzet](https://github.com/louzet)
+If you discover any security related issues, please create an issue or suggest a pull request !.
 
 ## License
 
